@@ -1,20 +1,18 @@
 FROM nginxinc/nginx-unprivileged:stable
 
-# Arbeitsverzeichnis setzen (optional)
+# Eigener statischer Pfad, nicht das vorinstallierte /usr/share/nginx/html
 WORKDIR /app
 
-# Eigene statische Inhalte (optional)
-COPY ./html /usr/share/nginx/html
-
-# Eigene Konfiguration (optional)
+# Eigene Konfig & Inhalte in sichere eigene Pfade
+COPY ./html /app/html
 COPY ./nginx.conf /etc/nginx/nginx.conf
 
-# Verzeichnisse beschreibbar für Gruppe 0 (OpenShift UID läuft in Gruppe 0)
-RUN chgrp -R 0 /etc/nginx /usr/share/nginx /var/cache/nginx \
- && chmod -R g=u /etc/nginx /usr/share/nginx /var/cache/nginx
+# Gib nur deinem eigenen Pfad Rechte (OpenShift UID = Mitglied von Gruppe 0)
+RUN mkdir -p /app/html /var/cache/nginx \
+ && chgrp -R 0 /app /var/cache/nginx \
+ && chmod -R g=u /app /var/cache/nginx
 
-# Expose unprivilegierten Port
+# Kein USER setzen – OpenShift macht das dynamisch
 EXPOSE 8080
 
-# CMD ist schon korrekt im Base-Image, aber zur Klarheit:
 CMD ["nginx", "-g", "daemon off;"]
