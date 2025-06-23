@@ -82,8 +82,57 @@ s="fas fa-file-alt"></i> Projektname / Servicename:</label>
     <h2><i class="fas fa-users"></i> Active Directory Gruppe:</h2>
     <textarea id="adgruppe" name="adgruppe"></textarea><br><br>
 
+    <h2><i class="fas fa-lightbulb"></i> Use Case:</h2>
+ <textarea id="usecase" name="usecase" rows="4" cols="50"></textarea><br><br>
+
+    <h2><i class="fas fa-database"></i> Datenquelle:</h2>
+    <input type="checkbox" id="lokalelogdatei" name="datenquelle" value="lokalelogdatei">
+    <label for="lokalelogdatei"><i class="fas fa-file-alt"></i> Lokale Log Datei</label><br>
+
+    <input type="checkbox" id="tcpport" name="datenquelle" value="tcpport">
+    <label for="tcpport"><i class="fas fa-network-wired"></i> TCP Port / Syslog</label><br>
+
+    <input type="checkbox" id="restapi" name="datenquelle" value="restapi222">
+    <label for="restapi"><i class="fas fa-globe"></i> RESTApi</label><br>
+    <input type="checkbox" id="sonstige-datenquelle" name="datenquelle" value="sonstige">
+    <label for="sonstige-datenquelle"><i class="fas fa-question-circle"></i> Sonstige</label>
+    <input type="text" id="sonstige_datenquelle_beschreibung" name="sonstige_datenquelle_beschreibung">
+    <br><br>
+    <h2><i class="fas fa-file-code"></i> Datenformat:</h2>
+ <textarea id="datenformat" name="datenformat" rows="4" cols="50"></textarea><br><br>
+
+    <h2><i class="fas fa-file-code"></i> Beispiel-Event:</h2>
+ <textarea id="beispiel-event" name="beispiel-event" rows="4" cols="50"></textarea><br><br>
+    <h2><i class="fas fa-code"></i> Features:</h2>
+    <input type="checkbox" id="alerting" name="features" value="alerting">
+    <label for="alerting"><i class="fas fa-bell"></i> Alerting</label><br>
+    <input type="checkbox" id="machinelearning" name="features" value="machinelearning">
+    <label for="machinelearning"><i class="fas fa-robot"></i> Machine Learning</label><br>
+
+    <input type="checkbox" id="customparsing" name="features" value="customparsing">
+    <label for="customparsing"><i class="fas fa-cogs"></i> Custom Parsing</label><br>
+    <input type="checkbox" id="enrichment" name="features" value="enrichment">
+    <label for="enrichment"><i class="fas fa-leaf"></i> Enrichment</label><br>
+    <input type="checkbox" id="transforms" name="features" value="transforms">
+    <label for="transforms"><i class="fas fa-exchange-alt"></i> Transformations</label><br>
+    <br><br>
+    <h2><i class="fas fa-chart-area"></i> Datenvolumen:</h2>
+    <label>Aufbewahrungsfrist:</label><br>
+    <input type="checkbox" id="aufbewahrung10" name="aufbewahrungsfrist" value="10tage">
+    <label for="aufbewahrung10">10 Tage</label><br>
+    <input type="checkbox" id="aufbewahrung30" name="aufbewahrungsfrist" value="30tage">
+    <label for="aufbewahrung30">30 Tage</label><br>
+    <input type="checkbox" id="aufbewahrung90" name="aufbewahrungsfrist" value="90tage">
+    <label for="aufbewahrung90">90 Tage</label><br><br>
+
+    <label for="eventsprosek"><i class="fas fa-gauge-high"></i> Events pro Sek:</label>
+    <input type="text" id="eventsprosek" name="eventsprosek"><br><br>
+
+    <label for="eventgroesse"><i class="fas fa-database"></i> Durchschnittliche Eventgröße:</label>
+    <input type="text" id="eventgroesse" name="eventgroesse"><br><br>
+
     <button type="button" onclick="window.print()">Print</button>
   </form>
-  <script defer type="text/javascript" src="/main.js"></script>
+  <script defer type="text/javascript" src="main.js"></script>
 </body>
 </html>

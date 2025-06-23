@@ -1,13 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
-  const sonstigeCheckbox = document.getElementById('sonstige');
-  const sonstigeText = document.getElementById('sonstige-text');
+  // Steuerung für "Sonstige" System-Art
+  const sonstigeCheckboxSystem = document.getElementById('sonstige');
+  const sonstigeTextSystem = document.getElementById('sonstige-text');
 
-  sonstigeCheckbox.addEventListener('change', function() {
+  sonstigeCheckboxSystem.addEventListener('change', function() {
     if (this.checked) {
-      sonstigeText.style.display = 'block';
+ sonstigeTextSystem.style.display = 'block';
     } else {
-      sonstigeText.style.display = 'none';
+ sonstigeTextSystem.style.display = 'none';
     }
   });
 });
-// Add JS here
