@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elasticsearch Kundenonboarding</title>
+  <link href='/style.css' rel='stylesheet'>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <form>
+    <h2><i class="fas fa-info-circle"></i> Kundeninformation</h2>
+
+    <label for="projektname"><i clasdocument.addEventListener('DOMContentLoaded', function() {
+  const sonstigeCheckbox = document.getElementById('sonstige');
+  const sonstigeText = document.getElementById('sonstige-text');
+
+  sonstigeCheckbox.addEventListener('change', function() {
+    if (this.checked) {
+      sonstigeText.style.display = 'block';
+    } else {
+      sonstigeText.style.display = 'none';
+    }
+  });
+});
+s="fas fa-file-alt"></i> Projektname / Servicename:</label>
+    <input type="text" id="projektname" name="projektname"><br><br>
+
+    <label for="projektleitung"><i class="fas fa-user-tie"></i> Projektleitung / Verfahrensleitung:</label>
+    <input type="text" id="projektleitung" name="projektleitung"><br><br>
+
+    <label for="bereich"><i class="fas fa-building"></i> Bereich / Kunde:</label>
+    <input type="text" id="bereich" name="bereich"><br><br>
+
+    <label for="email"><i class="fas fa-envelope"></i> E-Mail / Funktionspostfach:</label>
+    <input type="email" id="email" name="email"><br><br>
+
+    <label for="netzzonen"><i class="fas fa-network-wired"></i> Netzzonen:</label>
+    <input type="text" id="netzzonen" name="netzzonen"><br><br>
+
+    <label><i class="fas fa-laptop"></i> System-Art:</label><br>
+    <input type="checkbox" id="windows" name="systemart" value="windows">
+    <label for="windows"><i class="fab fa-windows"></i> Windows</label><br>
+    <input type="checkbox" id="linux" name="systemart" value="linux">
+    <label for="linux"><i class="fab fa-linux"></i> Linux</label><br>
+    <input type="checkbox" id="sonstige" name="systemart" value="sonstige">
+    <label for="sonstige"><i class="fas fa-question-circle"></i> sonstige</label>
+    <div id="sonstige-text" style="display:none;">
+      <label for="sonstige_beschreibung">Beschreibung:</label>
+      <input type="text" id="sonstige_beschreibung" name="sonstige_beschreibung">
+    </div>
+    <br><br>
+
+    <h2><i class="fas fa-chart-line"></i> Leistungsmodell - Observability:</h2>
+    <input type="checkbox" id="logmanagement" name="observability" value="logmanagement">
+    <label for="logmanagement"><i class="fas fa-file-medical-alt"></i> Log Management</label><br>
+    <input type="checkbox" id="systemmetriken" name="observability" value="systemmetriken">
+    <label for="systemmetriken"><i class="fas fa-chart-bar"></i> System Metriken</label><br>
+    <input type="checkbox" id="osquery" name="observability" value="osquery">
+    <label for="osquery"><i class="fas fa-search"></i> OS Query</label><br><br>
+
+    <h2><i class="fas fa-cogs"></i> Betreibermodell:</h2>
+    <input type="radio" id="fullmanaged" name="betreibermodell" value="fullmanaged">
+    <label for="fullmanaged"><i class="fas fa-hands-helping"></i> Full Managed</label><br>
+    <small>(vollständig verwaltetes Elastic Log Managemenet)</small><br>
+
+    <input type="radio" id="managed" name="betreibermodell" value="managed">
+    <label for="managed"><i class="fas fa-tasks"></i> Managed</label><br>
+    <small>(kein Zugriff auf Ingest, Integration Data, nur Namespace)</small><br>
+
+    <input type="radio" id="unmanaged" name="betreibermodell" value="unmanaged">
+    <label for="unmanaged"><i class="fas fa-hand-paper"></i> Unmanaged</label><br>
+    <small>(eigenes Cluster für Verfahren)</small><br><br>
+
+    <h2><i class="fas fa-server"></i> Cluster managed</h2>
+    <input type="checkbox" id="clustermanaged_ja" name="clustermanaged" value="ja">
+    <label for="clustermanaged_ja">Ja</label><br>
+    <input type="checkbox" id="clustermanaged_nein" name="clustermanaged" value="nein">
+    <label for="clustermanaged_nein">Nein</label><br><br>
+
+    <h2><i class="fas fa-users"></i> Active Directory Gruppe</h2>
+    <textarea id="adgruppe" name="adgruppe"></textarea><br><br>
+
+    <button type="button" onclick="window.print()">Print</button>
+  </form>
+  <script defer type="text/javascript" src="/main.js"></script>
+</body>
+</html>
