@@ -11,5 +11,8 @@ RUN mkdir -p /var/cache/nginx/client_temp /var/cache/nginx/proxy_temp /var/cache
 # Copy your project files to the web server's default document root
 COPY . /usr/share/nginx/html
 
+# Create /run/nginx directory and set ownership
+RUN mkdir -p /run/nginx && chown -R nginx:nginx /run/nginx
+
 # Expose the non-privileged port
 EXPOSE 8080
