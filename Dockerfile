@@ -9,4 +9,4 @@ RUN mkdir -p /var/cache/nginx/client_temp /var/cache/nginx/proxy_temp /var/cache
 COPY . /usr/share/nginx/html
 
 # Expose the port the web server is listening on
-EXPOSE 80
+EXPOSE 3000
