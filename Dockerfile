@@ -1,21 +1,20 @@
-FROM nginx:alpine
+FROM nginxinc/nginx-unprivileged:stable
 
-# Copy your custom nginx config
-COPY nginx.conf /etc/nginx/nginx.conf
+# Arbeitsverzeichnis setzen (optional)
+WORKDIR /app
 
-# Copy static files
-COPY . /usr/share/nginx/html
+# Eigene statische Inhalte (optional)
+COPY ./html /usr/share/nginx/html
 
-# Create all the required cache/temp directories and give ownership to nginx user
-RUN mkdir -p /var/cache/nginx/client_temp \
-    && mkdir -p /var/cache/nginx/proxy_temp \
-    && mkdir -p /var/cache/nginx/fastcgi_temp \
-    && mkdir -p /var/cache/nginx/uwsgi_temp \
-    && mkdir -p /var/cache/nginx/scgi_temp \
-    && chown -R nginx:nginx /var/cache/nginx \
-    && chown -R nginx:nginx /usr/share/nginx/html
+# Eigene Konfiguration (optional)
+COPY ./nginx.conf /etc/nginx/nginx.conf
 
-# Switch to non-root user
-USER nginx
+# Verzeichnisse beschreibbar für Gruppe 0 (OpenShift UID läuft in Gruppe 0)
+RUN chgrp -R 0 /etc/nginx /usr/share/nginx /var/cache/nginx \
+ && chmod -R g=u /etc/nginx /usr/share/nginx /var/cache/nginx
 
+# Expose unprivilegierten Port
 EXPOSE 8080
+
+# CMD ist schon korrekt im Base-Image, aber zur Klarheit:
+CMD ["nginx", "-g", "daemon off;"]
