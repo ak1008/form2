@@ -6,6 +6,7 @@ WORKDIR /usr/share/nginx/html
 # Eigene Konfig & Inhalte in sichere eigene Pfade
 COPY ./html /usr/share/nginx/html
 COPY ./nginx.conf /etc/nginx/nginx.conf
+COPY ./webfonts 
 
 # Kein USER setzen – OpenShift macht das dynamisch
 EXPOSE 8080
